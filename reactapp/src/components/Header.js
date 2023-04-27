@@ -26,7 +26,7 @@ const styles = {
     h1: {
         padding: '1rem 0',
         textAlign: 'center',
-		fontSize: '6rem',
+		fontSize: '5rem',
       	color: '#000'
 	}
 }
