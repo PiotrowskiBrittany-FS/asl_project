@@ -20,7 +20,7 @@ export default Header;
 
 const styles = {
     header: {
-        backgroundColor: '#A94064',
+        backgroundColor: '#76C4FA',
         marginBottom: '20px'
     },
     h1: {
