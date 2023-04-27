@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import Home from './pages/Home'
 import Quiz from './pages/Quiz'
-import Header from './component/Header';
+import Header from './components/Header';
 import Login from './pages/Login'
 import queryString from 'querystring';
 import axios from 'axios'

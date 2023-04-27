@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import queryString from 'querystring'
-import styled from 'styled-components'
-
 
 const Quizhome = () => {
 	const [quizzes, setQuizzes] = useState([])
@@ -26,7 +24,7 @@ const Quizhome = () => {
 			<ul>
 				{quizzes.map(q => (
 					<li>
-						<StyledLink to={'/quizzes/' + q.id}>{q.name}</StyledLink>
+						<a href={'/quizzes/' + q.id}>{q.name}</a>
 					</li>
 				))}
 			</ul>
@@ -35,15 +33,3 @@ const Quizhome = () => {
 }
 
 export default Quizhome
-
-const StyledLink = styled(Link)`
-    font-size: 42px;
-    color: whitesmoke;
-    margin: 50px 0px;
-    &:hover {
-        color: #C6362F;
-    }
-    &.active {
-        color: #D8605A;
-    }
-`
