@@ -5,7 +5,7 @@ const Login = () => {
 			<div style={styles.login}>
 				<h2>Login</h2>
 				<h3>Please login to get started: </h3>
-				<a href="https://github.com/login/oauth/authorize?client_id=">Login With Github</a>
+				<a href="https://github.com/login/oauth/authorize?client_id=f2654a86ce4959d77cec">Login With Github</a>
 			</div>
 		)
 }
