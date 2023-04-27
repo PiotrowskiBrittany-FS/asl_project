@@ -1,0 +1,21 @@
+{% extends "layouts/_default.twig" %} 
+
+{% block main_content %}
+<div>
+  <h1>Choices</h1>
+    <ul>
+      {% for choice in choices %}
+      <li style="background-color: #FFFF00;">
+        <p>{{ choice.name }}</p>
+        <a href="/choices/{{ choice.id }}/edit">Edit</a>    
+        <a href="/choices/{{ choice.id }}">Details</a>
+        <a href="/choices/{{ choice.id }}/delete">Delete</a>
+      </li>
+      {% endfor %}
+    </ul>
+
+    <a href="/choices/new">Create a Choice</a>
+    <a href="/">Return Home</a>
+</div>
+
+{% endblock %}

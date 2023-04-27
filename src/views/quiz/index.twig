@@ -1,0 +1,22 @@
+{% extends "layouts/_default.twig" %} 
+
+{% block main_content %}
+<div>
+<h1>Quizzes</h1>
+<ul>
+  {% for quiz in quizzes %}
+  <li style="background-color: #FFFF00;">
+    <p>{{ quiz.name }}</p>
+    {% if quiz.weight %} <p>Weight: {{ quiz.weight }}%</p> {% endif %} 
+    <a href="/quizzes/{{ quiz.id }}/edit">Edit</a>    
+    <a href="/quizzes/{{ quiz.id }}">Details</a>
+    <a href="/quizzes/{{ quiz.id }}/delete">Delete</a>
+  </li>
+  {% endfor %}
+</ul>
+
+  <a href="/quizzes/new">Create a Quiz</a>
+  <a href="/">Return Home</a>
+</div>
+
+{% endblock %}

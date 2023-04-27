@@ -1,0 +1,21 @@
+{% extends "layouts/_default.twig" %} 
+
+{% block main_content %}
+<div>
+  <h1>Questions</h1>
+    <ul>
+      {% for question in questions %}
+      <li style="background-color: #FFFF00;">
+        <p>{{ question.name }}</p>
+        <a href="/questions/{{ questions.id }}/edit">Edit</a>    
+        <a href="/questions/{{ questions.id }}">Details</a>
+        <a href="/questions/{{ questions.id }}/delete">Delete</a>
+      </li>
+      {% endfor %}
+    </ul>
+
+    <a href="/questions/new">Create a Question</a>
+    <a href="/">Return Home</a>
+</div>
+
+{% endblock %}

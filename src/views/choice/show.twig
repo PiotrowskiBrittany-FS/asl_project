@@ -1,0 +1,18 @@
+{% extends "layouts/_default.twig" %}
+
+{% block main_content %}
+
+	<div>
+		<h1>Choice Detail: </h1>
+		<h2>{{ choice.name }}</h2>
+		
+		<p>ID: {{ choice.id }}</p>
+		<p>Created At: {{ choice.createdAt }}</p>
+		<p>Updated At: {{ choice.updatedAt }}</p>
+
+		<a href="/choices/{{ quiz.id }}/edit">Edit</a>
+		<a href="/choices/{{ choice.id }}/delete">Delete</a>
+		<a href="/choices">View Choices</a>
+	</div>
+
+{% endblock %}
