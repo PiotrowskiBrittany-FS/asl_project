@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const request = require('request')
 const axios = require('axios')
-const querystring = require('querystring')
+const queryString = require('querystring')
 const { LoginToken } =require("../models/index");
 
 const client_id = 'f2654a86ce4959d77cec';
@@ -15,7 +15,7 @@ router.get('/login', (req,res) => {
 router.get('/callback', async (req, res) => {
   const { code } = req.query
   console.log(code)
-  const response = await post('https://github.com/login/oauth/access_token', {
+  const response = await axios.post('https://github.com/login/oauth/access_token', {
     client_id,
     client_secret,
     code,
