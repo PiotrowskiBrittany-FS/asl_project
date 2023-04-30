@@ -19,8 +19,8 @@ app.set('view engine', 'twig')
 
 
 // GET / HTTP/1.1
-app.get("/", (request, response, next) => { next() }, (request, response, next) => {
-  response.render('home/home');
+app.get("/", (request, response, next) => {
+  res.json("home")
 });
 
 

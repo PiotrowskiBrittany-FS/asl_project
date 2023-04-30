@@ -23,28 +23,12 @@ const Quiz = () => {
 				{quiz.Questions.map(q => (
 					<li>
 						<h3>{q.question}</h3>
-								{q.Choices.map(c => (
-									<div>
-										<ul>
-										<li>
-											<input type="radio" name={'question_' + q.id} required />
-											<label>{c.a}</label>
-										</li>
-										<li>
-											<input type="radio" name={'question_' + q.id} required />
-											<label>{c.b}</label>
-										</li>
-										<li>
-											<input type="radio" name={'question_' + q.id} required />
-											<label>{c.c}</label>
-										</li>
-										<li>
-											<input type="radio" name={'question_' + q.id} required />
-											<label>{c.d}</label>
-										</li>
-										</ul>
-									</div>
-								))}
+							{q.Choices.map(c => (
+								<div>
+									<input type="radio" name={'question_' + q.id} required />
+									<label>{c.a}</label>
+								</div>
+							))}
 					</li>
 				))}
 			</ul>

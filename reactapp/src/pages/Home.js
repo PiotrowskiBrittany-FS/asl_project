@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import queryString from 'querystring'
 
-const Quizhome = () => {
+const Home = () => {
 	const [quizzes, setQuizzes] = useState([])
 	useEffect(() => {
 		async function fetchQuizzes() {
 			const params = queryString.parse(window.location.search.replace(/^\?/, ''))
-			const response = await axios('http://localhost:3000/quizzes', {
+			const response = await axios('http://localhost:4000/quizzes', {
         headers: {
           token: localStorage.token
         }
@@ -24,7 +24,7 @@ const Quizhome = () => {
 			<ul>
 				{quizzes.map(q => (
 					<li>
-						<a href={'/quizzes/' + q.id}>{q.name}</a>
+						<Link to={'/quizzes/' + q.id}>{q.name}</Link>
 					</li>
 				))}
 			</ul>
@@ -32,4 +32,4 @@ const Quizhome = () => {
 	)
 }
 
-export default Quizhome
+export default Home

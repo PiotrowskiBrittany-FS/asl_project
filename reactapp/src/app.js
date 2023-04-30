@@ -1,10 +1,11 @@
 import './App.css';
 import React, { useEffect, useState} from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import Home from './pages/Home'
-import Quiz from './pages/Quiz'
+import Home from './pages/Home';
+import Quiz from './pages/Quiz';
 import Header from './components/Header';
-import Login from './pages/Login'
+import Login from './pages/Login';
+import QuizLayout from './pages/QuizLayout';
 import queryString from 'querystring';
 import axios from 'axios'
 import Logout from './pages/Logout';
@@ -17,7 +18,7 @@ const App = () => {
     async function fetchToken() {
       const params = queryString.parse(window.location.search.replace(/^\?/, ''))
       localStorage.token = params.token
-      const response = await axios('http://localhost:3000/auth/login/', {
+      const response = await axios('http://localhost:4000/auth/token/', {
         headers: {
           token: localStorage.token
         }
@@ -44,8 +45,8 @@ const App = () => {
         <Header token/>
           <Routes>
             <Route exact path='/' element={<Home />} />
-            <Route exact path='/login' element={<Login />}/>
             <Route exact path='/quizzes/:id' element={<Quiz />} />
+            <Route exact path='/quizlayout' element={<QuizLayout />}/>
             <Route exact path='/logout' element={<Logout />} />
           </Routes>
       </div>
