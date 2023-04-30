@@ -7,6 +7,7 @@ const choicesCtrl = require("./src/controllers/choices");
 const authCtrl = require("./src/controllers/auth");
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const cors = require('cors')
 
 app.use(session({
   saveUnitialized: false,
@@ -22,6 +23,15 @@ app.set('view engine', 'twig')
 app.get("/", (request, response, next) => {
   res.json("home")
 });
+
+app.use(cors({
+    "origin": "*",
+    "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+    "preflightContinue": false,
+    "optionsSuccessStatus": 204,
+    "credentials": true,
+    "allowCrossDomain": true
+  }))
 
 
 app.use("/quizzes", quizzesCtrl);

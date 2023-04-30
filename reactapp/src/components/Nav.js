@@ -18,6 +18,7 @@ export default Nav;
 
 const styles = {
     nav: {
+        color: '#000',
         display: 'flex',
         justifyContent: 'center'
     }

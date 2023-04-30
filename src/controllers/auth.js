@@ -14,7 +14,6 @@ router.get('/login', (req,res) => {
 
 router.get('/callback', async (req, res) => {
   const { code } = req.query
-  console.log(code)
   const response = await axios.post('https://github.com/login/oauth/access_token', {
     client_id,
     client_secret,

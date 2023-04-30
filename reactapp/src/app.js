@@ -12,7 +12,6 @@ import axios from 'axios'
 import Logout from './pages/Logout';
 
 
-
 const App = () => {
   const [token, setToken] = useState('')
   useEffect(() => {
