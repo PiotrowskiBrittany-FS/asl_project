@@ -33,7 +33,7 @@ app.use(cors({
     "allowCrossDomain": true
 }))
 
-
+//Allow the application to use the controllers
 app.use("/quizzes", quizzesCtrl);
 app.use("/questions", questionsCtrl);
 app.use("/choices", choicesCtrl);

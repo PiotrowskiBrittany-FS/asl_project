@@ -12,17 +12,19 @@ router.get('/login', (req,res) => {
 	res.render('auth/login')
 })
 
+//When the user clicks login the system will lead them to the github login with this client ID
 router.get("/callback", async (req, res) => {
   const { code } = req.query;
   await request(
     {
       uri: "https://github.com/login/oauth/access_token",
       qs: {
-        client_id,
-        client_secret,
+        client_id: 'f2654a86ce4959d77cec',
+        client_secret: '5d07bfc8e760737e2e02f317fb4826dee97a332b',
         code,
       },
     },
+    //if there is an error the user will be redirected
     async (error, response, body) => {
       const { access_token } = querystring.parse(body);
       req.session.access_token = access_token;
@@ -32,6 +34,7 @@ router.get("/callback", async (req, res) => {
   );
 });
 
+//The token is found from the github login
 router.get('/token', async (req, res) => {
   const token = await LoginToken.findOne({where: {
     token: req.headers.token
@@ -44,7 +47,7 @@ router.get('/token', async (req, res) => {
   }
 })
 
-
+//route for logging out
 router.get("/logout", (req,res) => {
 	req.session.access_token = "",
 	res.redirect("auth/login");
