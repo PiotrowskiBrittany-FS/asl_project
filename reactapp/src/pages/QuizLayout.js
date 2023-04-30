@@ -8,7 +8,7 @@ const QuizLayout = () => {
 
   useEffect(() => {
     async function fetchQuiz() {
-      const q = await axios(`http://localhost:4000/quizzes/${params.id}`, {
+      const q = await axios(`http://localhost:3000/quizzes/${params.id}`, {
         headers: {
           token: localStorage.token,
         },

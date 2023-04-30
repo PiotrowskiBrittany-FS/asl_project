@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useEffect, useState} from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import Nav from './components/Nav'
 import Home from './pages/Home';
 import Quiz from './pages/Quiz';
 import Header from './components/Header';
@@ -18,7 +19,7 @@ const App = () => {
     async function fetchToken() {
       const params = queryString.parse(window.location.search.replace(/^\?/, ''))
       localStorage.token = params.token
-      const response = await axios('http://localhost:4000/auth/token/', {
+      const response = await axios('http://localhost:3000/auth/token/', {
         headers: {
           token: localStorage.token
         }
@@ -41,7 +42,10 @@ const App = () => {
 
   return (
     <Router>
-      <div className="App">
+    <div>
+      <Nav isLoggedIn={token ? true : false} />
+    </div>
+      <div>
         <Header token/>
           <Routes>
             <Route exact path='/' element={<Home />} />

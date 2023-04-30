@@ -8,7 +8,7 @@ const Home = () => {
 	useEffect(() => {
 		async function fetchQuizzes() {
 			const params = queryString.parse(window.location.search.replace(/^\?/, ''))
-			const response = await axios('http://localhost:4000/quizzes', {
+			const response = await axios('http://localhost:3000/quizzes', {
         headers: {
           token: localStorage.token
         }
