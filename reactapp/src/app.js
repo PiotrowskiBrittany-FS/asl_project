@@ -1,10 +1,6 @@
 import './App.css';
 import React, { useEffect, useState} from 'react';
-import {
-    BrowserRouter as Router,
-    Route,
-    Routes
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Home from './pages/Home'
 import Quiz from './pages/Quiz'
 import Header from './components/Header';
@@ -21,7 +17,7 @@ const App = () => {
     async function fetchToken() {
       const params = queryString.parse(window.location.search.replace(/^\?/, ''))
       localStorage.token = params.token
-      const response = await axios('http://localhost:3000/auth/token/', {
+      const response = await axios('http://localhost:3000/auth/login/', {
         headers: {
           token: localStorage.token
         }
@@ -48,6 +44,7 @@ const App = () => {
         <Header token/>
           <Routes>
             <Route exact path='/' element={<Home />} />
+            <Route exact path='/login' element={<Login />}/>
             <Route exact path='/quizzes/:id' element={<Quiz />} />
             <Route exact path='/logout' element={<Logout />} />
           </Routes>
