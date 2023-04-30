@@ -24,14 +24,14 @@ app.get("/", (request, response, next) => {
   res.json("home")
 });
 
-// app.use(cors({
-//     "origin": "*",
-//     "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
-//     "preflightContinue": false,
-//     "optionsSuccessStatus": 204,
-//     "credentials": true,
-//     "allowCrossDomain": true
-//   }))
+app.use(cors({
+    "origin": "*",
+    "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+    "preflightContinue": false,
+    "optionsSuccessStatus": 204,
+    "credentials": true,
+    "allowCrossDomain": true
+}))
 
 
 app.use("/quizzes", quizzesCtrl);
